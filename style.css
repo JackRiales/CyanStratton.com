@@ -1,0 +1,446 @@
+/*
+  Hey again!
+  If you're reading this code... goodness, why!?
+  I mean like I appreciate it??? Cuz I worked hard! But anyhoo...
+  This is the bit that makes the page look all pretty. :D
+  Love yaaa~! - Jack
+*/
+
+/*
+  Some global annoyances that I like to reset
+*/
+*
+{
+    margin: 0;
+}
+
+html, body
+{
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+body
+{
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+hr
+{
+    clear: both;
+    border-color: transparent;
+}
+
+/*
+  !! Used to simulate the page fade-in :O
+*/
+body
+{
+    opacity: 1;
+    transition: 1s opacity;
+    -webkit-transition: 1s opacity;
+    -moz-transition: 1s opacity;
+    background-color: #eee;
+    /*
+    background: linear-gradient(180deg, #eee, #58f6ff);
+    background-size: 400% 400%;
+
+    -webkit-animation: BackgroundGradient 0s ease infinite;
+    -moz-animation: BackgroundGradient 0s ease infinite;
+    -o-animation: BackgroundGradient 0s ease infinite;
+    animation: BackgroundGradient 0s ease infinite;
+   */
+}
+body.fade-out
+{
+    opacity: 0;
+    transition: none;
+    -webkit-transition: none;
+    -moz-transition: none;
+}
+
+/*
+  Image tags are stupid. Let's make them less stupid!!!
+*/
+img
+{
+    width: 100%;
+    height: auto;
+}
+
+video
+{
+    width: 100%;
+    height: auto;
+}
+
+/*
+  Makes an image into a circle. Whoa!
+*/
+img.circle
+{
+    border-radius: 50%;
+}
+
+/*
+  Some fresh padding classes, yo...
+  (((totally not stolen from bootstrap)))
+*/
+.contain
+{
+    padding: 1.2em;
+    min-height: 100%;
+}
+
+/*
+  Used for sticky footer
+*/
+.main.contain
+{
+    margin-bottom: -142px;
+}
+
+.main.contain::after
+{
+    content: "";
+    display: block;
+}
+
+footer, .main.contain::after
+{
+    height: 142px;
+}
+
+footer
+{
+    padding-top: 5px;
+    background: orange;
+}
+
+footer p
+{
+    text-align: center;
+    font-style: italic;
+}
+
+.section
+{
+    padding-top: 30px;
+}
+
+/*
+  Some classes for a horizontal nav bar (responsivo!)
+*/
+ul.nav
+{
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+ul.nav li
+{
+    line-height: 40px;
+    height: 40px;
+    border-bottom: 1px solid #888;
+    font-size: 1.2em;
+}
+
+.nav a
+{
+    text-decoration: none;
+    color: #333;
+    display: block;
+}
+.nav a:hover
+{
+    background-color: #333;
+    color: #fff;
+    transition: all .3s ease-out;
+}
+
+@media screen and (min-width: 600px)
+{
+    ul.nav li
+    {
+	width: 240px;
+	border-bottom: none;
+	height: 50px;
+	line-height: 50px;
+	font-size: 1.4em;
+	display: inline-block;
+    }
+}
+
+/*
+  Titles are centered, in general. 
+*/
+.title
+{
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*
+  Adds a neat little drop shadow to whatever
+*/
+.shadow
+{
+    box-shadow: 5px 5px 2px #888;
+}
+
+/*
+  Makes a "sidenote" box out of a P tag!
+*/
+.sidenote
+{
+    background: #333;
+    padding: 10px 30px 10px 30px;
+    color: white;
+    font-size: 1.2em;
+}
+
+.sidenote.sidenote-orange
+{
+    background: orange;
+    color: #333;
+}
+
+.sidenote > *:first-child::before
+{
+    content: "Sidenote ...";
+    display: block;
+    font-size: 1.8em;
+    color: #eee;
+    font-style: oblique;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+.sidenote.sidenote-orange > *:first-child::before
+{
+    color: #333;
+    border-color: #333;
+}
+
+.sidenote a
+{
+    text-decoration: none;
+    font-weight: bold;
+    color: #aaeeff;
+}
+
+.sidenote.sidenote-orange a
+{
+    color: #336699;
+}
+
+#about-slideshow
+{
+    float: left;
+    
+    margin-right: 25px;
+    margin-bottom: 25px;
+}
+
+.slideshow
+{
+    background: #333;
+    overflow: hidden;
+    max-width: 550px;
+    max-height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slideshow-img
+{
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%
+    /*object-fit: cover;*/
+    display: none;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-animation: fade 5s infinite;
+    animation: fade 5s infinite;
+}
+
+/*
+  Used to smallify text, usually in spans
+*/
+.smol
+{
+    font-size: 0.7em;
+    font-style: italic;
+}
+
+/*
+  Floating is pretty cool. Let's make some elements float together <3
+*/
+.f-left { float: left; }
+.f-right { float: right; }
+
+.hide-tiny
+{
+    display: none;
+}
+
+/*
+  Appends parenthesis around a thing
+*/
+.paren::before
+{
+    content: "(";
+}
+.paren::after
+{
+    content: ")";
+}
+
+/*
+  Animations!!
+*/
+@-webkit-keyframes BackgroundGradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes BackgroundGradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-o-keyframes BackgroundGradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes BackgroundGradient { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+
+@-webkit-keyframes fade {
+    0% {opacity: 0}
+    80% {opacity: 1}
+    100% {opacity: 1}
+}
+@-moz-keyframes fade {
+    0% {opacity: 0}
+    80% {opacity: 1}
+    100% {opacity: 1}
+}
+@-o-keyframes fade {
+    0% {opacity: 0}
+    80% {opacity: 1}
+    100% {opacity: 1}
+}
+@keyframes fade {
+    0% {opacity: 0}
+    80% {opacity: 1}
+    100% {opacity: 1}
+}
+
+/*
+  Super specific ID-styles
+*/
+#main-title
+{
+    margin-bottom: 0;
+}
+
+#title-portrait
+{
+    height: 200px;
+    width: auto;
+    display: none;
+}
+
+#about
+{
+    font-size: 1.2em;
+}
+
+#pet-list
+{
+    margin-right: 50px;
+    list-style: none;
+}
+#pet-list li
+{
+    border-bottom: 1px solid #333;
+}
+#pet-list li:last-child
+{
+    border-bottom: none;
+}
+
+#art-gallery
+{
+    margin-bottom: 20px;
+    background-color: #333;
+    padding: 10px;
+    column-count: 2;
+}
+
+#art-gallery > img
+{
+    box-shadow: 3px 3px 1px black;
+}
+
+#love
+{
+    display: block;
+    margin: 10px auto;
+    max-width: 650px;
+    height: auto;
+}
+
+@media screen and (max-width: 858px)
+{
+    #main-title
+    {
+	font-size: 3.06em;
+    }
+
+    #about-slideshow
+    {
+	float: none;
+	display: block;
+	margin: auto;
+	padding: auto;
+    }
+
+    .f-right
+    {
+	float: none;
+    }
+
+    .f-left
+    {
+	float: none;
+    }
+}
+
+@media screen and (min-width: 600px)
+{
+    #title-portrait
+    {
+	display: block;
+    }
+
+    .hide-tiny
+    {
+	display: initial;
+    }
+}
